@@ -67,14 +67,14 @@
         <li class="menu-item {{ ($function_key == 'dashboard') ? 'active' : '' }}">
             <a href="{{route('dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
-                <div data-i18n="Analytics">Web Site</div>
+                <div data-i18n="Analytics">ตั้งค่าเว็บไซต์</div>
             </a>
         </li>
-        <li class="menu-header small text-uppercase"><span class="menu-header-text">Food</span></li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">อาหาร</span></li>
         <li class="menu-item {{ ($function_key == 'category') ? 'active' : '' }}">
             <a href="{{route('category')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">Category</div>
+                <div data-i18n="Basic">หมวดหมู่</div>
             </a>
         </li>
     </ul>

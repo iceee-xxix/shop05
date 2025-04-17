@@ -9,28 +9,18 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-end">
-                        <a href="" class="btn btn-sm btn-outline-success">เพิ่ม</a>
+                        <a href="{{route('CategoryCreate')}}" class="btn btn-sm btn-outline-success d-flex align-items-center" style="font-size:14px">เพิ่มหมวดหมู่&nbsp;<i class="bx bxs-plus-circle"></i></a>
                     </div>
                     <div class="card-body">
                         <table id="myTable" class="display" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>หมวดหมู่</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
+                                    <th class="text-center">ไอคอน</th>
+                                    <th class="text-center">จัดการ</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>John Doe</td>
-                                    <td>john@example.com</td>
-                                    <td>0812345678</td>
-                                </tr>
-                                <tr>
-                                    <td>Jane Smith</td>
-                                    <td>jane@example.com</td>
-                                    <td>0898765432</td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -50,6 +40,37 @@
             language: {
                 url: language,
             },
+            processing: true,
+            ajax: {
+                url: "{{route('categorylistData')}}",
+                type: "post",
+                data: function(d) {
+                    d.keyword = $('#keyword').val();
+                    d.selectBookregist = $('#selectBookregist').val();
+                    d.selectBookregist_parent = $('#selectBookregist_parent').val();
+                },
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+            },
+            columns: [{
+                    data: 'name',
+                    class: 'text-left',
+                    width: '60%'
+                },
+                {
+                    data: 'icon',
+                    class: 'text-center',
+                    width: '20%',
+                    orderable: false
+                },
+                {
+                    data: 'action',
+                    class: 'text-center',
+                    width: '20%',
+                    orderable: false
+                },
+            ]
         });
     });
 </script>

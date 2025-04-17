@@ -32,7 +32,11 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [Admin::class, 'dashboard'])->name('dashboard');
+    //หมวดหมู่
     Route::get('/admin/category', [Category::class, 'category'])->name('category');
+    Route::post('/admin/category/listData', [Category::class, 'categorylistData'])->name('categorylistData');
+    Route::get('/admin/category/create', [Category::class, 'CategoryCreate'])->name('CategoryCreate');
+    Route::get('/admin/category/edit/{id}', [Category::class, 'CategoryEdit'])->name('CategoryEdit');
 });
 
 
