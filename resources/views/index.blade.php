@@ -149,6 +149,16 @@
             font-size: 14px;
             color: #555;
         }
+
+        .btn-custom {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -189,6 +199,7 @@
     <footer>
         So Fin By So Smart Solution
     </footer>
+    <button class="btn-custom">ปุ่มไล่สี</button>
     <script>
         const menu = {
             "🍛 เมนูอาหาร": [
