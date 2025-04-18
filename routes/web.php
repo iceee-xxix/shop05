@@ -18,7 +18,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/main', function () {
+    return view('users.main_page');
+});
+Route::get('/detail', function () {
+    return view('users.detail_page');
+});
+Route::get('/buy', function () {
+    return view('users.list_page');
+});
+Route::get('/total', function () {
     return view('index');
 });
 
