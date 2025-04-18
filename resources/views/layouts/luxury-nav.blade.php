@@ -105,7 +105,7 @@
     </main>
 
     <nav class="bottom-navbar" id="bottomNavbar">
-        <a href="#" class="">
+        <a href="/" class="">
             <div class="icon"><i class="fas fa-home"></i></div> <!-- ✅ ไอคอนจาก Font Awesome -->
             <div>หน้าแรก</div>
         </a>
@@ -113,7 +113,7 @@
             <div class="icon"><i class="fas fa-user"></i></div> <!-- ✅ ไอคอนจาก Font Awesome -->
             <div>เรียกพนักงาน</div>
         </a>
-        <a href="#">
+        <a href="/buy">
             <div class="icon"><i class="fas fa-receipt"></i></div> <!-- ✅ ใช้ icon แสดงคำสั่งซื้อ -->
             <div>คำสั่งซื้อ</div>
         </a>

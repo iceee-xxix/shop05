@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\Admin;
 use App\Http\Controllers\admin\Category;
 use App\Http\Controllers\admin\Menu;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Main;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/main', function () {
-    return view('users.main_page');
-});
+Route::get('/', [Main::class, 'index'])->name('index');
 Route::get('/detail', function () {
     return view('users.detail_page');
 });
