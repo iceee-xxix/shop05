@@ -16,7 +16,6 @@
                             <thead>
                                 <tr>
                                     <th>หมวดหมู่</th>
-                                    <th class="text-center">ไอคอน</th>
                                     <th class="text-center">จัดการ</th>
                                 </tr>
                             </thead>
@@ -56,13 +55,7 @@
             columns: [{
                     data: 'name',
                     class: 'text-left',
-                    width: '60%'
-                },
-                {
-                    data: 'icon',
-                    class: 'text-center',
-                    width: '20%',
-                    orderable: false
+                    width: '80%'
                 },
                 {
                     data: 'action',

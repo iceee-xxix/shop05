@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/admin/category/listData', [Category::class, 'categorylistData'])->name('categorylistData');
     Route::get('/admin/category/create', [Category::class, 'CategoryCreate'])->name('CategoryCreate');
     Route::get('/admin/category/edit/{id}', [Category::class, 'CategoryEdit'])->name('CategoryEdit');
+    Route::post('/admin/category/save', [Category::class, 'CategorySave'])->name('CategorySave');
 });
 
 
