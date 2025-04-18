@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Categories;
+use App\Models\Categories_files;
 use Illuminate\Http\Request;
 
 class Category extends Controller
@@ -11,7 +12,7 @@ class Category extends Controller
     public function category()
     {
         $data['function_key'] = __FUNCTION__;
-        return view('category', $data);
+        return view('category.category', $data);
     }
 
     public function categorylistData()
@@ -41,5 +42,32 @@ class Category extends Controller
             ];
         }
         return response()->json($data);
+    }
+
+    public function CategoryCreate()
+    {
+        $data['function_key'] = 'category';
+        return view('category.create', $data);
+    }
+
+    public function CategorySave(Request $request)
+    {
+        $input = $request->input();
+        $category = new Categories();
+        $category->name = $input['name'];
+        if ($category->save()) {
+            if ($request->hasFile('file')) {
+                $file = $request->file('file');
+                $filename = time() . '_' . $file->getClientOriginalName();
+                $path = $file->storeAs('image', $filename, 'public');
+
+                $categories_file = new Categories_files();
+                $categories_file->categories_id = $category->id;
+                $categories_file->file = $path;
+                $categories_file->save();
+            }
+            return redirect()->route('category')->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
+        }
+        return redirect()->route('category')->with('error', 'ไม่สามารถบันทึกข้อมูลได้');
     }
 }

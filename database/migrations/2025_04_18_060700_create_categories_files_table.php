@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('categories_files', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->integer('categories_id');
+            $table->text('file');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -24,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('categories', function (Blueprint $table) {
-            $table->dropSoftDeletes(); // Removes deleted_at column
-        });
+        Schema::dropIfExists('categories_files');
     }
 };
