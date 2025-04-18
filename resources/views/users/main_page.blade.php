@@ -3,87 +3,87 @@
 @section('title', 'หน้าหลัก')
 
 @section('content')
-    <style>
-        .carousel-item img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 10px;
-        }
+<style>
+    .carousel-item img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
 
-        .icon-have {
+    .icon-have {
 
-            padding: 5px;
-            background: linear-gradient(360deg, var(--primary-color), var(--sub-color));
-            object-fit: cover;
-            border-radius: 100%;
-        }
+        padding: 5px;
+        background: linear-gradient(360deg, var(--primary-color), var(--sub-color));
+        object-fit: cover;
+        border-radius: 100%;
+    }
 
-        .icon-have img {
-            width: 50px;
-            height: 50px;
-        }
+    .icon-have img {
+        width: 50px;
+        height: 50px;
+    }
 
-        .title-food {
-            font-size: 30px;
-            font-weight: bold;
-        }
+    .title-food {
+        font-size: 30px;
+        font-weight: bold;
+    }
 
-        .food-box {
-            width: 150px;
-            height: 100px;
-            position: relative;
-            flex-shrink: 0;
-        }
+    .food-box {
+        width: 150px;
+        height: 100px;
+        position: relative;
+        flex-shrink: 0;
+    }
 
-        .food-image-wrapper {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
+    .food-image-wrapper {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
 
-        .food-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            border-radius: 15%;
-            object-fit: cover;
-        }
+    .food-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        border-radius: 15%;
+        object-fit: cover;
+    }
 
-        .food-label {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            /* border:2px solid #000; */
-            width: 100%;
-            transform: translateX(-50%);
-            font-size: 18px;
-            color: white;
-            font-weight: bold;
-            text-align: center;
-            text-shadow:
-                1px 1px var(--primary-color),
-                -1px 1px var(--primary-color),
-                1px -1px var(--primary-color),
-                -1px -1px var(--primary-color),
-                0 1px var(--primary-color),
-                1px 0 var(--primary-color),
-                0 -1px var(--primary-color),
-                -1px 0 var(--primary-color);
-        }
-    </style>
-    <div id="carouselCaptions" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner" style="border-radius: 10px;">
-            <div class="carousel-item active">
-                <img src="{{ asset('slide/slide-1.png') }}" class="d-block w-100" alt="slide">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('slide/slide-2.png') }}" class="d-block w-100" alt="slide">
-            </div>
-            <div class="carousel-item">
-                <img src="{{ asset('slide/slide-3.png') }}" class="d-block w-100" alt="slide">
-            </div>
+    .food-label {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        /* border:2px solid #000; */
+        width: 100%;
+        transform: translateX(-50%);
+        font-size: 18px;
+        color: white;
+        font-weight: bold;
+        text-align: center;
+        text-shadow:
+            1px 1px var(--primary-color),
+            -1px 1px var(--primary-color),
+            1px -1px var(--primary-color),
+            -1px -1px var(--primary-color),
+            0 1px var(--primary-color),
+            1px 0 var(--primary-color),
+            0 -1px var(--primary-color),
+            -1px 0 var(--primary-color);
+    }
+</style>
+<div id="carouselCaptions" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner" style="border-radius: 10px;">
+        <div class="carousel-item active">
+            <img src="{{ asset('slide/slide-1.png') }}" class="d-block w-100" alt="slide">
         </div>
-        {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions" data-bs-slide="prev">
+        <div class="carousel-item">
+            <img src="{{ asset('slide/slide-2.png') }}" class="d-block w-100" alt="slide">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ asset('slide/slide-3.png') }}" class="d-block w-100" alt="slide">
+        </div>
+    </div>
+    {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Previous</span>
     </button>
@@ -91,88 +91,96 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button> --}}
-    </div>
-    <div class="container mt-1">
-        <div class="d-flex flex-column justify-content-center">
-            <div class=" text-start fw-bold fs-5">
-                ที่นี่เรามี...
+</div>
+<div class="container mt-1">
+    <div class="d-flex flex-column justify-content-center">
+        <div class=" text-start fw-bold fs-5">
+            ที่นี่เรามี...
+        </div>
+        <div class="overflow-x-auto d-flex justify-content-between gap-2 py-2"
+            style="overflow-x: auto; white-space: nowrap;">
+            <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
+                <div class="icon-have">
+                    <img src="{{ asset('icon/icon-4.png') }}" alt="icon">
+                </div>
+                <div class="mt-1 fw-bold" style="font-size: 14px;">wifi ฟรี</div>
             </div>
-            <div class="overflow-x-auto d-flex justify-content-between gap-2 py-2"
-                style="overflow-x: auto; white-space: nowrap;">
-                <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
-                    <div class="icon-have">
-                        <img src="{{ asset('icon/icon-4.png') }}" alt="icon">
-                    </div>
-                    <div class="mt-1 fw-bold" style="font-size: 14px;">wifi ฟรี</div>
-                </div>
 
-                <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
-                    <div class="icon-have">
-                        <img src="{{ asset('icon/icon-1.png') }}" alt="icon">
-                    </div>
-                    <div class="mt-1 fw-bold" style="font-size: 14px;">ที่จอดรถ</div>
+            <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
+                <div class="icon-have">
+                    <img src="{{ asset('icon/icon-1.png') }}" alt="icon">
                 </div>
-
-                <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
-                    <div class="icon-have">
-                        <img src="{{ asset('icon/icon-2.png') }}" alt="icon" style="padding: 7px;">
-                    </div>
-                    <div class="mt-1 fw-bold" style="font-size: 14px;">จ่ายด้วย QR</div>
-                </div>
-
-                <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
-                    <div class="icon-have">
-                        <img src="{{ asset('icon/icon-3.png') }}" alt="icon">
-                    </div>
-                    <div class="mt-1 fw-bold" style="font-size: 13px;">ห้องน้ำสะอาด</div>
-                </div>
+                <div class="mt-1 fw-bold" style="font-size: 14px;">ที่จอดรถ</div>
             </div>
-            <div class="title-food">
-                หมวดอาหาร
+
+            <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
+                <div class="icon-have">
+                    <img src="{{ asset('icon/icon-2.png') }}" alt="icon" style="padding: 7px;">
+                </div>
+                <div class="mt-1 fw-bold" style="font-size: 14px;">จ่ายด้วย QR</div>
             </div>
-            <div class="overflow-x-auto d-flex justify-content-between gap-2 py-2">
-                {{-- Loop this --}}
-                <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0 gap-2">
-                    {{-- Loop second --}}
-                    {{-- img top --}}
-                    <div class="food-box d-flex flex-column justify-content-center align-items-center">
+
+            <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
+                <div class="icon-have">
+                    <img src="{{ asset('icon/icon-3.png') }}" alt="icon">
+                </div>
+                <div class="mt-1 fw-bold" style="font-size: 13px;">ห้องน้ำสะอาด</div>
+            </div>
+        </div>
+        <div class="title-food">
+            หมวดอาหาร
+        </div>
+        <div class="overflow-x-auto d-flex justify-content-between gap-2 py-2">
+            {{-- Loop this --}}
+            <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0 gap-2">
+                {{-- Loop second --}}
+                {{-- img top --}}
+                <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                    <a href="/detail">
                         <div class="food-image-wrapper">
                             <img src="{{ asset('foods/food5.png') }}" alt="icon">
                             <div class="food-label">อาหารตามสั่ง</div>
                         </div>
-                    </div>
-                    {{-- img bottom --}}
-                    <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                    </a>
+                </div>
+                {{-- img bottom --}}
+                <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                    <a href="/detail">
                         <div class="food-image-wrapper">
                             <img src="{{ asset('foods/food7.png') }}" alt="icon">
                             <div class="food-label">ของหวาน</div>
                         </div>
-                    </div>
-                    {{--End Loop second --}}
+                    </a>
                 </div>
-                {{-- Loop end --}}
+                {{--End Loop second --}}
+            </div>
+            {{-- Loop end --}}
 
-                <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0 gap-2" style="overflow-x: auto; white-space: nowrap;">
-                    {{-- img top --}}
-                    <div class="food-box d-flex flex-column justify-content-center align-items-center">
+            <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0 gap-2" style="overflow-x: auto; white-space: nowrap;">
+                {{-- img top --}}
+                <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                    <a href="/detail">
                         <div class="food-image-wrapper">
                             <img src="{{ asset('foods/food6.png') }}" alt="icon">
                             <div class="food-label">ก๋วยเตี๋ยว</div>
                         </div>
-                    </div>
-                    {{-- img bottom --}}
-                    <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                    </a>
+                </div>
+                {{-- img bottom --}}
+                <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                    <a href="/detail">
                         <div class="food-image-wrapper">
                             <img src="{{ asset('foods/food8.png') }}" alt="icon">
                             <div class="food-label">เครื่องดื่ม</div>
                         </div>
-                    </div>
+                    </a>
                 </div>
-               
-                
             </div>
+
+
         </div>
     </div>
+</div>
 
 
 @endsection
