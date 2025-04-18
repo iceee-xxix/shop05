@@ -64,7 +64,7 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
-        <li class="menu-item {{ ($function_key == 'dashboard') ? 'active' : '' }}">
+        <li class="menu-item {{ ($function_key == 'config') ? 'active' : '' }}">
             <a href="{{route('dashboard')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
                 <div data-i18n="Analytics">ตั้งค่าเว็บไซต์</div>
@@ -75,6 +75,12 @@
             <a href="{{route('category')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-collection"></i>
                 <div data-i18n="Basic">หมวดหมู่</div>
+            </a>
+        </li>
+        <li class="menu-item {{ ($function_key == 'menu') ? 'active' : '' }}">
+            <a href="{{route('menu')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-food-menu"></i>
+                <div data-i18n="Basic">เมนูอาหาร</div>
             </a>
         </li>
     </ul>

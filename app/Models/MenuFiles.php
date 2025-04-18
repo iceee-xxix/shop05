@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Categories_files extends Model
+class MenuFiles extends Model
 {
     use HasFactory;
 
-    public function information()
+    public function menu()
     {
-        return $this->belongsTo(Categories::class, 'categories_id');
+        return $this->belongsTo(Menu::class, 'menu_id');
     }
 }
