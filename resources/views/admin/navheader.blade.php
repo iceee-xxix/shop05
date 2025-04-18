@@ -29,13 +29,10 @@
                         </a>
                     </li>
                     <li>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <button class="dropdown-item">
-                                <i class="bx bx-log-out me-2"></i>
-                                <span class="align-middle">Log Out</span>
-                            </button>
-                        </form>
+                        <a href="{{route('admin.logout')}}" class="dropdown-item">
+                            <i class="bx bx-log-out me-2"></i>
+                            <span class="align-middle">Log Out</span>
+                        </a>
                     </li>
                 </ul>
             </li>
