@@ -64,10 +64,17 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
+        <li class="menu-header small text-uppercase"><span class="menu-header-text">ตั้งค่า</span></li>
         <li class="menu-item {{ ($function_key == 'config') ? 'active' : '' }}">
-            <a href="{{route('dashboard')}}" class="menu-link">
+            <a href="{{route('config')}}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-cog"></i>
                 <div data-i18n="Analytics">ตั้งค่าเว็บไซต์</div>
+            </a>
+        </li>
+        <li class="menu-item {{ ($function_key == 'promotion') ? 'active' : '' }}">
+            <a href="{{route('promotion')}}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-megaphone"></i>
+                <div data-i18n="Analytics">โปรโมชั่น</div>
             </a>
         </li>
         <li class="menu-header small text-uppercase"><span class="menu-header-text">อาหาร</span></li>
