@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\Admin;
 use App\Http\Controllers\admin\Category;
 use App\Http\Controllers\admin\Menu;
+use App\Http\Controllers\admin\Promotion;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Main;
 use App\Http\Controllers\ProfileController;
@@ -46,6 +47,17 @@ Route::middleware('checkLogin')->group(function () {
 
 Route::middleware('checkLogin')->group(function () {
     Route::get('/admin', [Admin::class, 'dashboard'])->name('dashboard');
+    //ตั้งค่าเว็บไซต์
+    Route::get('/admin/config', [Admin::class, 'config'])->name('config');
+    Route::post('/admin/config/save', [Admin::class, 'ConfigSave'])->name('ConfigSave');
+    //โปรโมชั่น
+    Route::get('/admin/promotion', [Promotion::class, 'promotion'])->name('promotion');
+    Route::post('/admin/promotion/listData', [Promotion::class, 'promotionlistData'])->name('promotionlistData');
+    Route::get('/admin/promotion/create', [Promotion::class, 'promotionCreate'])->name('promotionCreate');
+    Route::post('/admin/promotion/save', [Promotion::class, 'promotionSave'])->name('promotionSave');
+    Route::post('/admin/promotion/delete', [Promotion::class, 'promotionDelete'])->name('promotionDelete');
+    Route::post('/admin/promotion/status', [Promotion::class, 'changeStatusPromotion'])->name('changeStatusPromotion');
+    Route::get('/admin/promotion/edit/{id}', [Promotion::class, 'promotionEdit'])->name('promotionEdit');
     //หมวดหมู่
     Route::get('/admin/category', [Category::class, 'category'])->name('category');
     Route::post('/admin/category/listData', [Category::class, 'categorylistData'])->name('categorylistData');

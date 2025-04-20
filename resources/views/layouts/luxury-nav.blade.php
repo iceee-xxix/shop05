@@ -1,9 +1,15 @@
+<?php
+
+use App\Models\Config;
+
+$config = Config::first();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'SOS')</title>
+    <title>@yield('title', 'So Fin')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ✅ Font Awesome CDN -->
@@ -12,22 +18,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
-            --primary-color: {{ $primaryColor ?? '#1479eb' }};
-            --sub-color: {{ $subColor ?? '#84d2f8' }};
-            --text-color:{{ $textColorHover ?? '#f0f0f0' }};
-            --bg-card-food:{{$bgCardFod ?? '#ffffff'}};
+            --primary-color: <?= $config->color1 ?? '#1479eb' ?>;
+            --sub-color: <?= $config->color2 ?? '#84d2f8' ?>;
+            --text-color: <?= $textColorHover ?? '#f0f0f0' ?>;
+            --bg-card-food: <?= $bgCardFod ?? '#ffffff' ?>;
         }
 
 
         @font-face {
             font-family: 'PROMPT';
-            src: url('{{ asset('fonts/PROMPT-LIGHT.TTF') }}') format('truetype');
+            src: url('{{ asset("fonts/PROMPT-LIGHT.TTF") }}') format('truetype');
             font-weight: normal;
         }
 
         @font-face {
             font-family: 'PROMPT';
-            src: url('{{ asset('fonts/PROMPT-SEMIBOLD.TTF') }}') format('truetype');
+            src: url('{{ asset("fonts/PROMPT-SEMIBOLD.TTF") }}') format('truetype');
             font-weight: bold;
         }
 
@@ -94,7 +100,6 @@
             padding: 1rem;
             text-align: center;
         }
-
     </style>
 </head>
 
@@ -125,7 +130,7 @@
         let lastScrollTop = 0;
         const navbar = document.getElementById('bottomNavbar');
 
-        window.addEventListener("scroll", function () {
+        window.addEventListener("scroll", function() {
             let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
             if (currentScroll > lastScrollTop) {
                 navbar.classList.add("hide");

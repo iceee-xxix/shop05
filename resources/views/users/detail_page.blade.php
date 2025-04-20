@@ -1,6 +1,6 @@
 @extends('layouts.luxury-nav')
 
-@section('title', 'หน้ารายละเอียด')
+@section('title', 'เมนู')
 
 @section('content')
     <style>
