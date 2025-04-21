@@ -4,6 +4,7 @@ use App\Http\Controllers\admin\Admin;
 use App\Http\Controllers\admin\Category;
 use App\Http\Controllers\admin\Menu;
 use App\Http\Controllers\admin\Promotion;
+use App\Http\Controllers\admin\Table;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Main;
 use App\Http\Controllers\ProfileController;
@@ -21,8 +22,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [Main::class, 'index'])->name('index');
+Route::get('/order', [Main::class, 'order'])->name('order');
+Route::post('/sendorder', [Main::class, 'SendOrder'])->name('SendOrder');
+Route::get('/detail/{id}', [Main::class, 'detail'])->name('detail');
 Route::get('/detail', function () {
-    return view('users.detail_page');
+    return redirect()->route('index');
 });
 Route::get('/buy', function () {
     return view('users.list_page');
@@ -47,6 +51,10 @@ Route::middleware('checkLogin')->group(function () {
 
 Route::middleware('checkLogin')->group(function () {
     Route::get('/admin', [Admin::class, 'dashboard'])->name('dashboard');
+    //datatable Order
+    Route::post('/admin/order/listData', [Admin::class, 'ListOrder'])->name('ListOrder');
+    Route::post('/admin/order/listOrderDetail', [Admin::class, 'listOrderDetail'])->name('listOrderDetail');
+    Route::post('/admin/order/confirm_pay', [Admin::class, 'confirm_pay'])->name('confirm_pay');
     //ตั้งค่าเว็บไซต์
     Route::get('/admin/config', [Admin::class, 'config'])->name('config');
     Route::post('/admin/config/save', [Admin::class, 'ConfigSave'])->name('ConfigSave');
@@ -58,6 +66,14 @@ Route::middleware('checkLogin')->group(function () {
     Route::post('/admin/promotion/delete', [Promotion::class, 'promotionDelete'])->name('promotionDelete');
     Route::post('/admin/promotion/status', [Promotion::class, 'changeStatusPromotion'])->name('changeStatusPromotion');
     Route::get('/admin/promotion/edit/{id}', [Promotion::class, 'promotionEdit'])->name('promotionEdit');
+    //จัดการโต้ะและเพิ่ม Qr code
+    Route::get('/admin/table', [Table::class, 'table'])->name('table');
+    Route::post('/admin/table/listData', [Table::class, 'tablelistData'])->name('tablelistData');
+    Route::post('/admin/table/QRshow', [Table::class, 'QRshow'])->name('QRshow');
+    Route::get('/admin/table/create', [Table::class, 'tableCreate'])->name('tableCreate');
+    Route::get('/admin/table/edit/{id}', [Table::class, 'tableEdit'])->name('tableEdit');
+    Route::post('/admin/table/delete', [Table::class, 'tableDelete'])->name('tableDelete');
+    Route::post('/admin/table/save', [Table::class, 'tableSave'])->name('tableSave');
     //หมวดหมู่
     Route::get('/admin/category', [Category::class, 'category'])->name('category');
     Route::post('/admin/category/listData', [Category::class, 'categorylistData'])->name('categorylistData');

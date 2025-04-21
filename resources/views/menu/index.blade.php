@@ -45,40 +45,6 @@
             ajax: {
                 url: "{{route('menulistData')}}",
                 type: "post",
-                complete: function(d) {
-                    $('.deleteMenu').click(function(e) {
-                        e.preventDefault();
-                        var id = $(this).data('id');
-                        Swal.fire({
-                            title: "ท่านต้องการลบเมนูใช่หรือไม่?",
-                            icon: "question",
-                            showDenyButton: true,
-                            confirmButtonText: "ตกลง",
-                            denyButtonText: `ยกเลิก`
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                $.ajax({
-                                    url: "{{route('menuDelete')}}",
-                                    type: "post",
-                                    data: {
-                                        id: id
-                                    },
-                                    headers: {
-                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                    },
-                                    success: function(response) {
-                                        if (response.status == true) {
-                                            Swal.fire(response.message, "", "success");
-                                            $('#myTable').DataTable().ajax.reload(null, false);
-                                        } else {
-                                            Swal.fire(response.message, "", "error");
-                                        }
-                                    }
-                                });
-                            }
-                        });
-                    });
-                },
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
                 },
@@ -106,6 +72,38 @@
                     orderable: false
                 },
             ]
+        });
+    });
+    $(document).on('click', '.deleteMenu', function(e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        Swal.fire({
+            title: "ท่านต้องการลบเมนูใช่หรือไม่?",
+            icon: "question",
+            showDenyButton: true,
+            confirmButtonText: "ตกลง",
+            denyButtonText: `ยกเลิก`
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "{{route('menuDelete')}}",
+                    type: "post",
+                    data: {
+                        id: id
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        if (response.status == true) {
+                            Swal.fire(response.message, "", "success");
+                            $('#myTable').DataTable().ajax.reload(null, false);
+                        } else {
+                            Swal.fire(response.message, "", "error");
+                        }
+                    }
+                });
+            }
         });
     });
 </script>

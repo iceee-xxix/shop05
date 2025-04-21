@@ -118,7 +118,7 @@ $config = Config::first();
             <div class="icon"><i class="fas fa-user"></i></div> <!-- ✅ ไอคอนจาก Font Awesome -->
             <div>เรียกพนักงาน</div>
         </a>
-        <a href="/buy">
+        <a href="{{route('order')}}">
             <div class="icon"><i class="fas fa-receipt"></i></div> <!-- ✅ ใช้ icon แสดงคำสั่งซื้อ -->
             <div>คำสั่งซื้อ</div>
         </a>
