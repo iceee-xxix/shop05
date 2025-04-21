@@ -9,6 +9,7 @@ use App\Models\Categories;
 use App\Models\Menu;
 use App\Models\Orders;
 use App\Models\OrdersDetails;
+use App\Models\Promotion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -20,8 +21,9 @@ class Main extends Controller
         if ($table_id) {
             session(['table_id' => $table_id]);
         }
+        $promotion = Promotion::where('is_status', 1)->whereDate('start_date', '<=', date('Y-m-d'))->whereDate('end_date', '>=', date('Y-m-d'))->get();
         $category = Categories::has('menu')->with('files')->get();
-        return view('users.main_page', compact('category'));
+        return view('users.main_page', compact('category', 'promotion'));
     }
 
     public function detail($id)

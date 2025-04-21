@@ -71,27 +71,17 @@
             -1px 0 var(--primary-color);
     }
 </style>
+@if(count($promotion) > 0)
 <div id="carouselCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner" style="border-radius: 10px;">
-        <div class="carousel-item active">
-            <img src="{{ asset('slide/slide-1.png') }}" class="d-block w-100" alt="slide">
+        @foreach($promotion as $key => $rs)
+        <div class="carousel-item <?= ($key == 0) ? 'active' : '' ?>">
+            <img src="{{ url('storage/'.$rs->image) }}" class="d-block w-100" alt="slide">
         </div>
-        <div class="carousel-item">
-            <img src="{{ asset('slide/slide-2.png') }}" class="d-block w-100" alt="slide">
-        </div>
-        <div class="carousel-item">
-            <img src="{{ asset('slide/slide-3.png') }}" class="d-block w-100" alt="slide">
-        </div>
+        @endforeach
     </div>
-    {{-- <button class="carousel-control-prev" type="button" data-bs-target="#carouselCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselCaptions" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button> --}}
 </div>
+@endif
 <div class="container mt-1">
     <div class="d-flex flex-column justify-content-center">
         <div class=" text-start fw-bold fs-5">
