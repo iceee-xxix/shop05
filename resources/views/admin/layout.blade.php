@@ -31,6 +31,7 @@
         });
         var channel = pusher.subscribe('orders');
         channel.bind('App\\Events\\OrderCreated', function(data) {
+            console.log(data);
             document.getElementById('notifySound').play();
             Swal.fire({
                 icon: 'info',
