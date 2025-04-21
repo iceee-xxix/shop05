@@ -28,7 +28,7 @@ class Main extends Controller
 
     public function detail($id)
     {
-        $menu = Menu::with('files', 'option')->get();
+        $menu = Menu::where('categories_id', $id)->with('files', 'option')->get();
         return view('users.detail_page', compact('menu'));
     }
 
