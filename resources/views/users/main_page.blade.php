@@ -126,7 +126,11 @@
                 <div class="col-6 food-box d-flex flex-column justify-content-center align-items-center mb-2">
                     <div class="food-image-wrapper">
                         <a href="{{route('detail',$rs->id)}}">
-                            <img src="{{ url('storage/'.$rs['files']->file) }}" alt="icon">
+                            <?php if ($rs['files']) { ?>
+                                <img src="{{ url('storage/'.$rs['files']->file) }}" alt="icon">
+                            <?php } else { ?>
+                                <img src="{{ asset('foods/default-photo.png') }}" alt="icon">
+                            <?php } ?>
                             <div class="food-label">{{$rs->name}}</div>
                         </a>
                     </div>
