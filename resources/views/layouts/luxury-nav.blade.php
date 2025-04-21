@@ -45,7 +45,7 @@ $config = Config::first();
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            height: 100vh;
+            min-height: 30vh;
             color: #333333;
             transition: background-image 0.3s ease, color 0.3s ease;
         }
