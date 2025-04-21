@@ -45,40 +45,6 @@
                 type: "post",
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                },
-                complete: function(d) {
-                    $('.deleteCategory').click(function(e) {
-                        e.preventDefault();
-                        var id = $(this).data('id');
-                        Swal.fire({
-                            title: "ท่านต้องการลบหมวดหมู่ใช่หรือไม่?",
-                            icon: "question",
-                            showDenyButton: true,
-                            confirmButtonText: "ตกลง",
-                            denyButtonText: `ยกเลิก`
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                $.ajax({
-                                    url: "{{route('CategoryDelete')}}",
-                                    type: "post",
-                                    data: {
-                                        id: id
-                                    },
-                                    headers: {
-                                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                                    },
-                                    success: function(response) {
-                                        if (response.status == true) {
-                                            Swal.fire(response.message, "", "success");
-                                            $('#myTable').DataTable().ajax.reload(null, false);
-                                        } else {
-                                            Swal.fire(response.message, "", "error");
-                                        }
-                                    }
-                                });
-                            }
-                        });
-                    });
                 }
             },
 
@@ -94,6 +60,40 @@
                     orderable: false
                 },
             ]
+        });
+    });
+</script>
+<script>
+    $(document).on('click', '.deleteCategory', function(e) {
+        e.preventDefault();
+        var id = $(this).data('id');
+        Swal.fire({
+            title: "ท่านต้องการลบหมวดหมู่ใช่หรือไม่?",
+            icon: "question",
+            showDenyButton: true,
+            confirmButtonText: "ตกลง",
+            denyButtonText: `ยกเลิก`
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    url: "{{route('CategoryDelete')}}",
+                    type: "post",
+                    data: {
+                        id: id
+                    },
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    success: function(response) {
+                        if (response.status == true) {
+                            Swal.fire(response.message, "", "success");
+                            $('#myTable').DataTable().ajax.reload(null, false);
+                        } else {
+                            Swal.fire(response.message, "", "error");
+                        }
+                    }
+                });
+            }
         });
     });
 </script>

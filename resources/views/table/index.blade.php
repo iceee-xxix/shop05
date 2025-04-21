@@ -9,17 +9,14 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-end">
-                        <a href="{{route('promotionCreate')}}" class="btn btn-sm btn-outline-success d-flex align-items-center" style="font-size:14px">เพิ่มโปรโมชั่น&nbsp;<i class="bx bxs-plus-circle"></i></a>
+                        <a href="{{route('tableCreate')}}" class="btn btn-sm btn-outline-success d-flex align-items-center" style="font-size:14px">เพิ่มโต้ะ&nbsp;<i class="bx bxs-plus-circle"></i></a>
                     </div>
                     <div class="card-body">
                         <table id="myTable" class="display" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>ชื่อโปรโมชั่น</th>
-                                    <th class="text-center">รูปภาพ</th>
-                                    <th class="text-center">ตั้งแต่</th>
-                                    <th class="text-center">สิ้นสุด</th>
-                                    <th class="text-center">สถานะการใช้งาน</th>
+                                    <th class="text-center">เลขโต้ะ</th>
+                                    <th class="text-center">QR-Code</th>
                                     <th class="text-center">จัดการ</th>
                                 </tr>
                             </thead>
@@ -28,6 +25,29 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" id="modal-qr">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">ชำระเงิน</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <div class="card-body d-flex justify-content-center">
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center mb-3" id="body-html">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">ปิด</button>
             </div>
         </div>
     </div>
@@ -45,42 +65,28 @@
             },
             processing: true,
             ajax: {
-                url: "{{route('promotionlistData')}}",
+                url: "{{route('tablelistData')}}",
                 type: "post",
                 headers: {
                     'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                }
+                },
             },
 
             columns: [{
-                    data: 'name',
-                    class: 'text-left',
-                    width: '30%'
+                    data: 'number',
+                    class: 'text-center',
+                    width: '60%'
                 },
                 {
-                    data: 'image',
+                    data: 'qr_code',
                     class: 'text-center',
-                    width: '10%'
-                },
-                {
-                    data: 'start_date',
-                    class: 'text-center',
-                    width: '15%'
-                },
-                {
-                    data: 'end_date',
-                    class: 'text-center',
-                    width: '15%'
-                },
-                {
-                    data: 'status',
-                    class: 'text-center',
-                    width: '15%'
+                    width: '20%',
+                    orderable: false
                 },
                 {
                     data: 'action',
                     class: 'text-center',
-                    width: '15%',
+                    width: '20%',
                     orderable: false
                 },
             ]
@@ -88,11 +94,11 @@
     });
 </script>
 <script>
-    $(document).on('click', '.deletePromotion', function(e) {
+    $(document).on('click', '.deleteTable', function(e) {
         e.preventDefault();
         var id = $(this).data('id');
         Swal.fire({
-            title: "ท่านต้องการลบโปรโมชั่นใช่หรือไม่?",
+            title: "ท่านต้องการลบโต้ะใช่หรือไม่?",
             icon: "question",
             showDenyButton: true,
             confirmButtonText: "ตกลง",
@@ -100,7 +106,7 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "{{route('promotionDelete')}}",
+                    url: "{{route('tableDelete')}}",
                     type: "post",
                     data: {
                         id: id
@@ -120,23 +126,21 @@
             }
         });
     });
-
-    $(document).on('click', '.form-check-input', function(e) {
+    $(document).on('click', '.modalQr', function(e) {
         e.preventDefault();
         var id = $(this).data('id');
-        var value = $(this).is(':checked');
         $.ajax({
-            url: "{{route('changeStatusPromotion')}}",
             type: "post",
+            url: "{{route('QRshow')}}",
             data: {
-                id: id,
-                value: value
+                id: id
             },
             headers: {
                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
             },
             success: function(response) {
-                $('#myTable').DataTable().ajax.reload(null, false);
+                $('#modal-qr').modal('show')
+                $('#body-html').html(response);
             }
         });
     });

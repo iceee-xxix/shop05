@@ -15,4 +15,9 @@ class Categories extends Model
     {
         return $this->hasOne(Categories_files::class, 'categories_id');
     }
+    
+    public function menu()
+    {
+        return $this->hasMany(Menu::class, 'categories_id');
+    }
 }

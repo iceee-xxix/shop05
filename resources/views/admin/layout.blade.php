@@ -22,6 +22,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Thai:wght@100..900&family=Sarabun:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
+    <script>
+        Pusher.logToConsole = true;
+        var pusher = new Pusher('f9ff390c3b4d6400f715', {
+            cluster: 'ap1',
+            encrypted: true
+        });
+        var channel = pusher.subscribe('orders');
+        channel.bind('App\\Events\\OrderCreated', function(data) {
+            document.getElementById('notifySound').play();
+            Swal.fire({
+                icon: 'info',
+                title: '📦 มีออเดอร์ใหม่',
+            })
+        });
+    </script>
     <style>
         body {
             font-family: "Noto Sans Thai", sans-serif;
@@ -32,6 +48,7 @@
 </head>
 
 <body>
+    <audio id="notifySound" src="{{asset('sound/test.mp3')}}" preload="auto"></audio>
     @if ($message = Session::get('success'))
     <script>
         Swal.fire({

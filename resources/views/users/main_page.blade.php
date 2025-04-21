@@ -30,8 +30,8 @@
     }
 
     .food-box {
-        width: 150px;
-        height: 100px;
+        /* width: 150px; */
+        height: 110px;
         position: relative;
         flex-shrink: 0;
     }
@@ -45,7 +45,7 @@
     .food-image-wrapper img {
         width: 100%;
         height: 100%;
-        border-radius: 15%;
+        border-radius: 5%;
         object-fit: cover;
     }
 
@@ -131,92 +131,18 @@
             หมวดอาหาร
         </div>
         <div class="gap-2 py-2">
-            <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0 gap-2">
-                <div class="row">
-                    <div class="col-6">
-                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                            <a href="/detail">
-                                <div class="food-image-wrapper">
-                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
-                                    <div class="food-label">อาหารตามสั่ง</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                            <a href="/detail">
-                                <div class="food-image-wrapper">
-                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
-                                    <div class="food-label">อาหารตามสั่ง</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                            <a href="/detail">
-                                <div class="food-image-wrapper">
-                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
-                                    <div class="food-label">อาหารตามสั่ง</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                            <a href="/detail">
-                                <div class="food-image-wrapper">
-                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
-                                    <div class="food-label">อาหารตามสั่ง</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                            <a href="/detail">
-                                <div class="food-image-wrapper">
-                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
-                                    <div class="food-label">อาหารตามสั่ง</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                            <a href="/detail">
-                                <div class="food-image-wrapper">
-                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
-                                    <div class="food-label">อาหารตามสั่ง</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                            <a href="/detail">
-                                <div class="food-image-wrapper">
-                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
-                                    <div class="food-label">อาหารตามสั่ง</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                            <a href="/detail">
-                                <div class="food-image-wrapper">
-                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
-                                    <div class="food-label">อาหารตามสั่ง</div>
-                                </div>
-                            </a>
-                        </div>
+            <div class="row py-2">
+                @foreach($category as $rs)
+                <div class="col-6 food-box d-flex flex-column justify-content-center align-items-center mb-2">
+                    <div class="food-image-wrapper">
+                        <a href="{{route('detail',$rs->id)}}">
+                            <img src="{{ url('storage/'.$rs['files']->file) }}" alt="icon">
+                            <div class="food-label">{{$rs->name}}</div>
+                        </a>
                     </div>
                 </div>
+                @endforeach
             </div>
-
-
         </div>
     </div>
 </div>
