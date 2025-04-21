@@ -31,11 +31,11 @@
         });
         var channel = pusher.subscribe('orders');
         channel.bind('App\\Events\\OrderCreated', function(data) {
-            console.log(data);
+            console.log(data.order[0]);
             document.getElementById('notifySound').play();
             Swal.fire({
                 icon: 'info',
-                title: '📦 มีออเดอร์ใหม่',
+                title: data.order[0],
             })
         });
     </script>

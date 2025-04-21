@@ -84,4 +84,9 @@ class Main extends Controller
         }
         return response()->json($data);
     }
+
+    public function sendEmp()
+    {
+        event(new OrderCreated(['ลูกค้าเรียกจากโต้ะที่ ' . session('table_id')]));
+    }
 }

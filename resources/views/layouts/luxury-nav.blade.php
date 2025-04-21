@@ -114,7 +114,7 @@ $config = Config::first();
             <div class="icon"><i class="fas fa-home"></i></div> <!-- ✅ ไอคอนจาก Font Awesome -->
             <div>หน้าแรก</div>
         </a>
-        <a href="#">
+        <a href="javascript:void(0);" id="sendEmp">
             <div class="icon"><i class="fas fa-user"></i></div> <!-- ✅ ไอคอนจาก Font Awesome -->
             <div>เรียกพนักงาน</div>
         </a>
@@ -125,6 +125,7 @@ $config = Config::first();
     </nav>
     <!-- ✅ Bootstrap 5.3.0 CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('assets/vendor/libs/jquery/jquery.js')}}"></script>
     <!-- ✅ Javascript -->
     <script>
         let lastScrollTop = 0;
@@ -140,7 +141,26 @@ $config = Config::first();
             lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
         }, false);
     </script>
-
+    <script>
+        $('#sendEmp').click(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "post",
+                url: "{{route('sendEmp')}}",
+                headers: {
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                dataType: "json",
+                success: function(response) {
+                    if (response.status == true) {
+                        Swal.fire(response.message, "", "success");
+                    } else {
+                        Swal.fire(response.message, "", "error");
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
