@@ -84,7 +84,7 @@
 @endif
 <div class="container mt-1">
     <div class="d-flex flex-column justify-content-center">
-        <div class=" text-start fw-bold fs-5">
+        <!-- <div class=" text-start fw-bold fs-5">
             ที่นี่เรามี...
         </div>
         <div class="overflow-x-auto d-flex justify-content-between gap-2 py-2"
@@ -116,7 +116,7 @@
                 </div>
                 <div class="mt-1 fw-bold" style="font-size: 13px;">ห้องน้ำสะอาด</div>
             </div>
-        </div>
+        </div> -->
         <div class="title-food">
             หมวดอาหาร
         </div>
