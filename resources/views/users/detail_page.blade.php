@@ -78,7 +78,11 @@
         <!-- เมนู 1 -->
         @foreach($menu as $rs)
         <div class="d-flex justify-content-start align-items-start card-food gap-2">
-            <img src="{{ url('storage/'.$rs['files']->file) }}" alt="food" style="width: 100px;">
+            <?php if ($rs['files']) { ?>
+                <img src="{{ url('storage/'.$rs['files']->file) }}" alt="food" style="width: 100px;">
+            <?php } else { ?>
+                <img src="{{ asset('foods/default-photo.png') }}" alt="food" style="width: 100px;">
+            <?php } ?>
             <div class="d-flex flex-column justify-content-center">
                 <div class="card-title text-start">
                     {{$rs->name}}
