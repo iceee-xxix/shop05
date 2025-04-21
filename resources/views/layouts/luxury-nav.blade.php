@@ -41,7 +41,7 @@ $config = Config::first();
             margin: 0;
             padding-bottom: 30px;
             font-family: 'PROMPT', sans-serif;
-            background-image: url('{{ $background ?? asset("bg-df/bg-dfs.jpg") }}');
+            background-image: url('{{ $config->image_bg ? url("storage/".$config->image_bg) : asset("bg-df/bg-dfs.jpg") }}');
             background-size: cover;
             background-position: center;
             /* background-repeat: no-repeat; */
