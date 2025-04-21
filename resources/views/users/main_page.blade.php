@@ -130,50 +130,89 @@
         <div class="title-food">
             หมวดอาหาร
         </div>
-        <div class="overflow-x-auto d-flex justify-content-between gap-2 py-2">
-            {{-- Loop this --}}
+        <div class="gap-2 py-2">
             <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0 gap-2">
-                {{-- Loop second --}}
-                {{-- img top --}}
-                <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                    <a href="/detail">
-                        <div class="food-image-wrapper">
-                            <img src="{{ asset('foods/food5.png') }}" alt="icon">
-                            <div class="food-label">อาหารตามสั่ง</div>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                            <a href="/detail">
+                                <div class="food-image-wrapper">
+                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
+                                    <div class="food-label">อาหารตามสั่ง</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                {{-- img bottom --}}
-                <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                    <a href="/detail">
-                        <div class="food-image-wrapper">
-                            <img src="{{ asset('foods/food7.png') }}" alt="icon">
-                            <div class="food-label">ของหวาน</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                            <a href="/detail">
+                                <div class="food-image-wrapper">
+                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
+                                    <div class="food-label">อาหารตามสั่ง</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                {{--End Loop second --}}
-            </div>
-            {{-- Loop end --}}
-
-            <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0 gap-2" style="overflow-x: auto; white-space: nowrap;">
-                {{-- img top --}}
-                <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                    <a href="/detail">
-                        <div class="food-image-wrapper">
-                            <img src="{{ asset('foods/food6.png') }}" alt="icon">
-                            <div class="food-label">ก๋วยเตี๋ยว</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                            <a href="/detail">
+                                <div class="food-image-wrapper">
+                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
+                                    <div class="food-label">อาหารตามสั่ง</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                </div>
-                {{-- img bottom --}}
-                <div class="food-box d-flex flex-column justify-content-center align-items-center">
-                    <a href="/detail">
-                        <div class="food-image-wrapper">
-                            <img src="{{ asset('foods/food8.png') }}" alt="icon">
-                            <div class="food-label">เครื่องดื่ม</div>
+                    </div>
+                    <div class="col-6">
+                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                            <a href="/detail">
+                                <div class="food-image-wrapper">
+                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
+                                    <div class="food-label">อาหารตามสั่ง</div>
+                                </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
+                    <div class="col-6">
+                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                            <a href="/detail">
+                                <div class="food-image-wrapper">
+                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
+                                    <div class="food-label">อาหารตามสั่ง</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                            <a href="/detail">
+                                <div class="food-image-wrapper">
+                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
+                                    <div class="food-label">อาหารตามสั่ง</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                            <a href="/detail">
+                                <div class="food-image-wrapper">
+                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
+                                    <div class="food-label">อาหารตามสั่ง</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="food-box d-flex flex-column justify-content-center align-items-center">
+                            <a href="/detail">
+                                <div class="food-image-wrapper">
+                                    <img src="{{ asset('foods/food5.png') }}" alt="icon">
+                                    <div class="food-label">อาหารตามสั่ง</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
