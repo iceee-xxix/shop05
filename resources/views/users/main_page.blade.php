@@ -3,6 +3,12 @@
 @section('title', 'หน้าหลัก')
 
 @section('content')
+<?php
+
+use App\Models\Config;
+
+$config = Config::first();
+?>
 <style>
     .carousel-item img {
         width: 100%;
@@ -27,6 +33,7 @@
     .title-food {
         font-size: 30px;
         font-weight: bold;
+        color: <?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;
     }
 
     .food-box {
@@ -57,7 +64,7 @@
         width: 100%;
         transform: translateX(-50%);
         font-size: 18px;
-        color: white;
+        color: <?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;
         font-weight: bold;
         text-align: center;
         text-shadow:
@@ -84,7 +91,7 @@
 @endif
 <div class="container mt-1">
     <div class="d-flex flex-column justify-content-center">
-        <!-- <div class=" text-start fw-bold fs-5">
+        <div class=" text-start fw-bold fs-5" style="color:<?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>">
             ที่นี่เรามี...
         </div>
         <div class="overflow-x-auto d-flex justify-content-between gap-2 py-2"
@@ -93,30 +100,30 @@
                 <div class="icon-have">
                     <img src="{{ asset('icon/icon-4.png') }}" alt="icon">
                 </div>
-                <div class="mt-1 fw-bold" style="font-size: 14px;">wifi ฟรี</div>
+                <div class="mt-1 fw-bold" style="font-size: 14px;color:<?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;">wifi ฟรี</div>
             </div>
 
             <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
                 <div class="icon-have">
                     <img src="{{ asset('icon/icon-1.png') }}" alt="icon">
                 </div>
-                <div class="mt-1 fw-bold" style="font-size: 14px;">ที่จอดรถ</div>
+                <div class="mt-1 fw-bold" style="font-size: 14px;color:<?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;">ที่จอดรถ</div>
             </div>
 
             <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
                 <div class="icon-have">
                     <img src="{{ asset('icon/icon-2.png') }}" alt="icon" style="padding: 7px;">
                 </div>
-                <div class="mt-1 fw-bold" style="font-size: 14px;">จ่ายด้วย QR</div>
+                <div class="mt-1 fw-bold" style="font-size: 14px;color:<?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;">จ่ายด้วย QR</div>
             </div>
 
             <div class="d-flex flex-column justify-content-center align-items-center flex-shrink-0">
                 <div class="icon-have">
                     <img src="{{ asset('icon/icon-3.png') }}" alt="icon">
                 </div>
-                <div class="mt-1 fw-bold" style="font-size: 13px;">ห้องน้ำสะอาด</div>
+                <div class="mt-1 fw-bold" style="font-size: 13px;color:<?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;">ห้องน้ำสะอาด</div>
             </div>
-        </div> -->
+        </div>
         <div class="title-food">
             หมวดอาหาร
         </div>

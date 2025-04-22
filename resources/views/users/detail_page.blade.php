@@ -3,10 +3,17 @@
 @section('title', 'เมนู')
 
 @section('content')
+<?php
+
+use App\Models\Config;
+
+$config = Config::first();
+?>
 <style>
     .title-food {
         font-size: 30px;
         font-weight: bold;
+        color: <?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;
     }
 
     .card-food {
