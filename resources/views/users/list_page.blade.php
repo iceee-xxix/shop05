@@ -3,10 +3,17 @@
 @section('title', 'หน้ารายละเอียด')
 
 @section('content')
+<?php
+
+use App\Models\Config;
+
+$config = Config::first();
+?>
 <style>
     .title-buy {
         font-size: 30px;
         font-weight: bold;
+        color: <?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;
     }
 
     .title-list-buy {
