@@ -37,7 +37,7 @@ $config = Config::first();
     }
 
 
-    .food-box img{
+    .food-box img {
         width: 100%;
         height: 120px;
         object-fit: cover;
@@ -49,8 +49,11 @@ $config = Config::first();
         color: <?= ($config->color_category != '')  ? $config->color_category :  '#ffffff' ?>;
         font-weight: bold;
         text-align: center;
-        word-wrap: break-word; /* เพิ่มบังคับตัดบรรทัด */
-    overflow-wrap: break-word; /* รองรับเบราว์เซอร์ใหม่ */
+        word-wrap: break-word;
+        /* เพิ่มบังคับตัดบรรทัด */
+        overflow-wrap: break-word;
+        /* รองรับเบราว์เซอร์ใหม่ */
+        border-radius: 0.5rem;
         width: 100%;
         line-height: 0.9;
     }
@@ -115,7 +118,7 @@ $config = Config::first();
                             <?php } else { ?>
                                 <img src="{{ asset('foods/default-photo.png') }}" alt="icon">
                             <?php } ?>
-                            <div class="food-label mt-2">{{$rs->name}}</div> 
+                            <div class="food-label mt-2">{{$rs->name}}</div>
                         </a>
                     </div>
                 </div>
