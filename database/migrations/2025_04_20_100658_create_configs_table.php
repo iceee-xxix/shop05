@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('color1')->nullable();
             $table->text('color2')->nullable();
             $table->text('color_font')->nullable();
+            $table->text('color_category')->nullable();
             $table->text('image_bg')->nullable();
             $table->text('image_qr')->nullable();
             $table->timestamps();

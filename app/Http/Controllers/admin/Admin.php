@@ -124,6 +124,7 @@ class Admin extends Controller
         $config->color1 = $input['color1'];
         $config->color2 = $input['color2'];
         $config->color_font = $input['color_font'];
+        $config->color_category = $input['color_category'];
 
         if ($request->hasFile('image_bg')) {
             $file = $request->file('image_bg');
