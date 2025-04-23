@@ -36,37 +36,23 @@ $config = Config::first();
         color: <?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;
     }
 
-    .food-box {
-        /* width: 150px; */
-        height: 110px;
-        position: relative;
-        flex-shrink: 0;
-    }
 
-    .food-image-wrapper {
+    .food-box img{
         width: 100%;
-        height: 100%;
-        position: relative;
-    }
-
-    .food-image-wrapper img {
-        width: 100%;
-        height: 100%;
-        border-radius: 5%;
+        height: 120px;
         object-fit: cover;
     }
 
+
     .food-label {
-        position: relative;
-        bottom: 0;
-        left: 50%;
-        /* border:2px solid #000; */
-        width: 100%;
-        transform: translateX(-50%);
         font-size: 18px;
         color: <?= ($config->color_category != '')  ? $config->color_category :  '#ffffff' ?>;
         font-weight: bold;
         text-align: center;
+        word-wrap: break-word; /* เพิ่มบังคับตัดบรรทัด */
+    overflow-wrap: break-word; /* รองรับเบราว์เซอร์ใหม่ */
+        width: 100%;
+        line-height: 0.9;
     }
 </style>
 @if(count($promotion) > 0)
@@ -121,15 +107,15 @@ $config = Config::first();
         <div class="gap-2 py-2">
             <div class="row py-2">
                 @foreach($category as $rs)
-                <div class="col-6 food-box d-flex flex-column justify-content-center align-items-center mb-2">
-                    <div class="food-image-wrapper">
-                        <a href="{{route('detail',$rs->id)}}" style="text-decoration: none;">
+                <div class="col-6 mb-2">
+                    <div class="food-box">
+                        <a href="{{route('detail',$rs->id)}}" style="text-decoration: none;" class="d-flex flex-column justify-content-center align-items-center">
                             <?php if ($rs['files']) { ?>
                                 <img src="{{ url('storage/'.$rs['files']->file) }}" alt="icon">
                             <?php } else { ?>
                                 <img src="{{ asset('foods/default-photo.png') }}" alt="icon">
                             <?php } ?>
-                            <div class="food-label">{{$rs->name}}</div>
+                            <div class="food-label mt-2">{{$rs->name}}</div> 
                         </a>
                     </div>
                 </div>
