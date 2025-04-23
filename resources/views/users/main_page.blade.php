@@ -57,25 +57,16 @@ $config = Config::first();
     }
 
     .food-label {
-        position: absolute;
+        position: relative;
         bottom: 0;
         left: 50%;
         /* border:2px solid #000; */
         width: 100%;
         transform: translateX(-50%);
         font-size: 18px;
-        color: <?= ($config->color_font != '')  ? $config->color_font :  '#ffffff' ?>;
+        color: <?= ($config->color_category != '')  ? $config->color_category :  '#ffffff' ?>;
         font-weight: bold;
         text-align: center;
-        text-shadow:
-            1px 1px var(--primary-color),
-            -1px 1px var(--primary-color),
-            1px -1px var(--primary-color),
-            -1px -1px var(--primary-color),
-            0 1px var(--primary-color),
-            1px 0 var(--primary-color),
-            0 -1px var(--primary-color),
-            -1px 0 var(--primary-color);
     }
 </style>
 @if(count($promotion) > 0)
@@ -132,7 +123,7 @@ $config = Config::first();
                 @foreach($category as $rs)
                 <div class="col-6 food-box d-flex flex-column justify-content-center align-items-center mb-2">
                     <div class="food-image-wrapper">
-                        <a href="{{route('detail',$rs->id)}}">
+                        <a href="{{route('detail',$rs->id)}}" style="text-decoration: none;">
                             <?php if ($rs['files']) { ?>
                                 <img src="{{ url('storage/'.$rs['files']->file) }}" alt="icon">
                             <?php } else { ?>

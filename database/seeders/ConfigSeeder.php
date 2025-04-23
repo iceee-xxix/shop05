@@ -20,6 +20,7 @@ class ConfigSeeder extends Seeder
                 'color1' => '#1479eb',
                 'color2' => '#84d2f8',
                 'color_font' => '#f0f0f0',
+                'color_category' => '#f0f0f0',
             ]
         );
     }
