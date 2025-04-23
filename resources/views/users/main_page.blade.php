@@ -41,6 +41,7 @@ $config = Config::first();
         width: 100%;
         height: 120px;
         object-fit: cover;
+        border-radius: 0.5rem;
     }
 
 
@@ -53,7 +54,6 @@ $config = Config::first();
         /* เพิ่มบังคับตัดบรรทัด */
         overflow-wrap: break-word;
         /* รองรับเบราว์เซอร์ใหม่ */
-        border-radius: 0.5rem;
         width: 100%;
         line-height: 0.9;
     }
