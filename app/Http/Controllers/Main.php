@@ -28,7 +28,7 @@ class Main extends Controller
 
     public function detail($id)
     {
-        $menu = Menu::where('categories_id', $id)->with('files', 'option')->orderBy('created_at','asc')->get();
+        $menu = Menu::where('categories_id', $id)->with('files', 'option')->orderBy('created_at', 'asc')->get();
         return view('users.detail_page', compact('menu'));
     }
 
@@ -61,7 +61,7 @@ class Main extends Controller
 
         if (!empty($item)) {
             $order = new Orders();
-            $order->table_id = session('table_id');
+            $order->table_id = session('table_id') ?? '1';
             $order->total = $total;
             $order->remark = $remark;
             $order->status = 1;
