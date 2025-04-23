@@ -28,7 +28,7 @@ class Main extends Controller
 
     public function detail($id)
     {
-        $menu = Menu::where('categories_id', $id)->with('files', 'option')->get();
+        $menu = Menu::where('categories_id', $id)->with('files', 'option')->orderBy('created_at','asc')->get();
         return view('users.detail_page', compact('menu'));
     }
 
