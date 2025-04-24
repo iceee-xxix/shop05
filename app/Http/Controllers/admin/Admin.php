@@ -9,8 +9,10 @@ use App\Models\Config;
 use App\Models\Menu;
 use App\Models\Orders;
 use App\Models\OrdersDetails;
+use BaconQrCode\Encoder\QrCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PromptPayQR\Builder;
 
 class Admin extends Controller
 {
@@ -174,5 +176,13 @@ class Admin extends Controller
         $strMonthCut = array("", "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม");
         $strMonthThai = $strMonthCut[$strMonth];
         return "$strDay $strMonthThai $strYear" . " " . $time;
+    }
+
+    public function generateQr(Request $request)
+    {
+        $total = $request->total;
+        $qr = Builder::staticMerchantPresentedQR('0963233224')->setAmount($total)->toSvgString();
+
+        echo $qr;
     }
 }

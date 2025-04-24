@@ -146,8 +146,7 @@
                                 <h5>ยอดชำระ</h5>
                                 <h1 class="text-success" id="totalPay"></h1>
                             </div>
-                            <div class="col-12 d-flex justify-content-center mb-3">
-                                <img src="<?= !empty($config->image_qr) ? url('storage/' . $config->image_qr) : '' ?>" class="card-img-top" style="width:70%;">
+                            <div class="col-12 d-flex justify-content-center mb-3" id="qr_code">
                             </div>
                         </div>
                         <input type="hidden" id="order_id">
@@ -241,9 +240,25 @@
     });
 
     $(document).on('click', '.modalPay', function(e) {
-        $('#modal-pay').modal('show');
-        $('#totalPay').html($(this).data('total') + ' บาท');
-        $('#order_id').val($(this).data('id'));
+        var total = $(this).data('total');
+        Swal.showLoading();
+        $.ajax({
+            type: "post",
+            url: "{{ route('generateQr') }}",
+            data: {
+                total: total
+            },
+            headers: {
+                'X-CSRF-TOKEN': '{{ csrf_token() }}'
+            },
+            success: function(response) {
+                Swal.close();
+                $('#modal-pay').modal('show');
+                $('#totalPay').html(total + ' บาท');
+                $('#qr_code').html(response);
+                $('#order_id').val($(this).data('id'));
+            }
+        });
     });
 </script>
 <script>

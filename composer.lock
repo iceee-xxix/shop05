@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64e6ae0589a13eb3921117d194079010",
+    "content-hash": "5936a0cbae7eb5232a989d45f6318021",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1157,6 +1157,101 @@
                 }
             ],
             "time": "2025-02-03T10:55:03+00:00"
+        },
+        {
+            "name": "keenthekeen/php-promptpay-qr",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/keenthekeen/php-promptpay-qr.git",
+                "reference": "50c00625ffa3806a5e2ce96e6e303bb41c412610"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/keenthekeen/php-promptpay-qr/zipball/50c00625ffa3806a5e2ce96e6e303bb41c412610",
+                "reference": "50c00625ffa3806a5e2ce96e6e303bb41c412610",
+                "shasum": ""
+            },
+            "require": {
+                "bacon/bacon-qr-code": "^2.0",
+                "kittinan/php-crc": "1.0.0",
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.2",
+                "pestphp/pest": "^1.22",
+                "php-coveralls/php-coveralls": "^2.5",
+                "phpstan/phpstan": "^1.8"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PromptPayQR\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "PHP Library to generate QR Code payload for PromptPay",
+            "keywords": [
+                "Promptpay"
+            ],
+            "support": {
+                "source": "https://github.com/keenthekeen/php-promptpay-qr/tree/v1.1.0"
+            },
+            "time": "2023-11-17T07:53:32+00:00"
+        },
+        {
+            "name": "kittinan/php-crc",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kittinan/php-crc.git",
+                "reference": "878bab5ee779a20d62c4ebfd800bf10a1779c29f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kittinan/php-crc/zipball/878bab5ee779a20d62c4ebfd800bf10a1779c29f",
+                "reference": "878bab5ee779a20d62c4ebfd800bf10a1779c29f",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "mermshaus\\CRC\\": "src",
+                    "mermshaus\\CRC\\Tests\\": "tests"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marc Ermshaus",
+                    "email": "marc@ermshaus.org",
+                    "homepage": "http://www.ermshaus.org/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Calculates CRC checksums for input data",
+            "keywords": [
+                "ccitt",
+                "crc",
+                "crc1",
+                "crc16",
+                "crc16dnp",
+                "crc16qt",
+                "crc16usb",
+                "modbus",
+                "xmodem",
+                "zmodem"
+            ],
+            "support": {
+                "source": "https://github.com/kittinan/php-crc/tree/master"
+            },
+            "time": "2017-09-02T08:59:05+00:00"
         },
         {
             "name": "laravel/framework",
@@ -8500,12 +8595,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": "^8.1"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

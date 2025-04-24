@@ -55,6 +55,7 @@ Route::middleware('checkLogin')->group(function () {
     //datatable Order
     Route::post('/admin/order/listData', [Admin::class, 'ListOrder'])->name('ListOrder');
     Route::post('/admin/order/listOrderDetail', [Admin::class, 'listOrderDetail'])->name('listOrderDetail');
+    Route::post('/admin/order/generateQr', [Admin::class, 'generateQr'])->name('generateQr');
     Route::post('/admin/order/confirm_pay', [Admin::class, 'confirm_pay'])->name('confirm_pay');
     //ตั้งค่าเว็บไซต์
     Route::get('/admin/config', [Admin::class, 'config'])->name('config');
