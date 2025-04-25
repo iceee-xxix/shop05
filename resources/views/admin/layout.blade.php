@@ -25,7 +25,7 @@
     <script src="https://js.pusher.com/8.4.0/pusher.min.js"></script>
     <script>
         Pusher.logToConsole = true;
-        var pusher = new Pusher('f9ff390c3b4d6400f715', {
+        var pusher = new Pusher('e778a98448e3f04c8769', {
             cluster: 'ap1',
             encrypted: true
         });
