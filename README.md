@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 php artisan db:seed --class=AdminSeeder
 php artisan db:seed --class=ConfigSeeder
 =======
@@ -12,3 +13,6 @@ php artisan db:seed --class=ConfigSeeder
 =======
 # shop02
 >>>>>>> cf9d2f2 (Initial commit)
+=======
+# shop01
+>>>>>>> c5681f4 (Create README.md)
