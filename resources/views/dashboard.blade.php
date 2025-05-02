@@ -241,6 +241,10 @@
 
     $(document).on('click', '.modalPay', function(e) {
         var total = $(this).data('total');
+<<<<<<< HEAD
+=======
+        var id = $(this).data('id');
+>>>>>>> ccd204a13ed430db5d74c407c9a931a425570b03
         Swal.showLoading();
         $.ajax({
             type: "post",
@@ -256,7 +260,11 @@
                 $('#modal-pay').modal('show');
                 $('#totalPay').html(total + ' บาท');
                 $('#qr_code').html(response);
+<<<<<<< HEAD
                 $('#order_id').val($(this).data('id'));
+=======
+                $('#order_id').val(id);
+>>>>>>> ccd204a13ed430db5d74c407c9a931a425570b03
             }
         });
     });
