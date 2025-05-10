@@ -202,11 +202,7 @@ class Menu extends Controller
         $menu->type = $input['name'];
         $menu->price = $input['price'];
         if ($menu->save()) {
-<<<<<<< HEAD
-            return redirect()->route('menuOption', $input['id'])->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
-=======
             return redirect()->route('menuOption', $menu->menu_id)->with('success', 'บันทึกรายการเรียบร้อยแล้ว');
->>>>>>> ccd204a13ed430db5d74c407c9a931a425570b03
         }
         return redirect()->route('menuOption', $input['id'])->with('error', 'ไม่สามารถบันทึกข้อมูลได้');
     }
